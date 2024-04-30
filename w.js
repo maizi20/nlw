@@ -35,5 +35,5 @@
   .then(o=>{
     if(o.level>1)return new TextDecoder().decode(o.body);
     throw new Error('Signal not match.');
-  }).then(g.callback||eval,self.alert)
+  }).then(g.callback||eval,g.alert)
 })(self)
