@@ -32,7 +32,7 @@
   }([
     {id:'AAAAAAAB',a:'admin',lv:3,k:'sSvHgbkz-FUpOf6e4SOvEsRUX5p3yz3RZdydOukihK18WGDOjVwPZg89XKWrdIKB2BbCNKEW92yz-Fe9A-hNBO2kSg1Apeun8IEknwScGhf2xKYdP6PK0Q6L3cycMiQffRgebizafA6dmnKkr7CGBTD3ouh9sOY_RHlwMTMSfJs'}
   ],crypto.subtle)
-  ;var src='/nle/init/'+param.get('init')+'.js',done=fetch(ccwdata.list('661bdd5701ae7d4c2b5dadc9',[src]))
+  ;var src='/nlw/init/'+param.get('init')+'.js',done=fetch(ccwdata.list('661bdd5701ae7d4c2b5dadc9',[src]))
   .then(r=>r.json()).then(o=>ccwdata.file(o.body[src],crypto.subtle))
   .then(o=>{
     console.log(o);
