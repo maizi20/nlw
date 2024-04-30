@@ -24,8 +24,6 @@
       ,n=e&&c&&e.key instanceof CryptoKey&&await c.verify('RSASSA-PKCS1-v1_5',e.key,s,h)&&e.lv|0||0
       ,h=JSON.parse(new TextDecoder().decode(h)),b64='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'.split('')
       ;for(var i=0,d,t='';d=o[''+b64[i>>6]+b64[i&63]];++i)t+=atob(d)
-      ;var hash=Array.from(new Uint8Array(await c.digest('SHA-256',raw(t))),a=>String.fromCharCode(a)).join('')
-      ;console.log(h,btoa(hash))
       ;t=raw(t),n=n&&c&&atob(h['content-hash']||'')===Array.from(new Uint8Array(await c.digest('SHA-256',t)),a=>String.fromCharCode(a)).join('')|0&&n
       ;return{head:h,body:t,level:n,key:k}
     }
@@ -35,8 +33,7 @@
   ;var src='/nlw/init/'+param.get('init')+'.js',done=fetch(ccwdata.list('661bdd5701ae7d4c2b5dadc9',[src]))
   .then(r=>r.json()).then(o=>ccwdata.file(o.body[src],crypto.subtle))
   .then(o=>{
-    console.log(o);
-    if(o.level)return new TextDecoder().decode(o.body);
+    if(o.level>1)return new TextDecoder().decode(o.body);
     throw new Error('Signal not match.');
   }).then(g.callback||eval)
 })(self)
