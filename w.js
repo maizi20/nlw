@@ -1,5 +1,5 @@
 (g=>{
-  g._request=g._fetch=g.fetch,g.onfetch=e=>e.respondWith(_request(e.request,e))
+  g._request=g._fetch=g.fetch,g.onfetch=e=>e.respondWith(_request(e.request,e)),g.onmessage=console.log
   ,g.param||(g.param=new URL(location).searchParams)
   ,g.oninstall=e=>e.waitUntil(done)
   ,g.ccwdata=new class CCWData{
