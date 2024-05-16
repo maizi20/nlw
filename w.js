@@ -20,7 +20,7 @@
     }async file(o,c){
       var keys=await this.keyReady
       ,raw=n=>new Uint8Array(n.length).map((a,i)=>n.charCodeAt(i))
-      ,{s,h}=o,{0:k,1:s}=s.split(','),s=raw(atob(s)),h=raw(atob(h)),e=keys.get(k)
+      ,{s,h}=o,{0:k,1:s}=s.split(','),s=raw(atob(s||'')),h=raw(atob(h)),e=keys.get(k)
       ,n=e&&c&&e.key instanceof CryptoKey&&await c.verify('RSASSA-PKCS1-v1_5',e.key,s,h)&&e.lv|0||0
       ,h=JSON.parse(new TextDecoder().decode(h)),b64='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'.split('')
       ;for(var i=0,d,t='';d=o[''+b64[i>>6]+b64[i&63]];++i)t+=atob(d)
